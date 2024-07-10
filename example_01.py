@@ -22,7 +22,7 @@ Please answer as if talking like a pirate!"""
 # Enter the chat_session context. This context provides automatic in-memory
 # chat history in the form of a list of dicts, with each dict entry containing 
 # a content key and a role key, with the role values of either system, user, or 
-# AI.
+# assistant.
 #
 # The chat session can be terminated by hitting enter without any input.
 with model.chat_session(system_prompt=system_prompt):    
@@ -35,5 +35,7 @@ with model.chat_session(system_prompt=system_prompt):
             print(Fore.CYAN + Style.BRIGHT + "AI: " + Style.NORMAL + response)
         else:            
             break
-        
+    
+    # Print the whole chat session at the end - helpful for understanding
+    # the structure.
     pprint.pprint(model.current_chat_session)
